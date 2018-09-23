@@ -7,5 +7,14 @@
 //
 
 struct Constants {
-    static let googleApiKey = "AIzaSyCKMCuIh3KVajTe8cuINe5fT5ST6AU49rM"
+    static let googleApiKey = "AIzaSyDXc-Q2sl5nh3_PnNhedALC8u40uKtuGqI"
+    static let alertTitle = "Ooops.."
+    static let alertMessage = "Smth goes wrong check your Internet"
+    static let alertButtonTitle = "Ok"
+    static let cancelButtonTitle = "Cancel"
+    static let restrictedAlertTitle = "Check your lcoation services"
+    static let restrictedAlertMessage = "Please check your preferences for using the app below"
+    static let restrictedAlertButtonName = "Ok"
+    static let storyboardName = "Main"
+    static let noLocationControllerStoryboardIdentifier = "NoLocationViewController"
 }

@@ -12,10 +12,10 @@ import GoogleMaps
 
 final class MapViewController: UIViewController {
 
-    //MARK: - IBOutlet
+    // MARK: - IBOutlet
     @IBOutlet weak var mapView: GMSMapView!
     
-    //MARK: - Variables
+    // MARK: - Variables
     private let camera = GMSCameraPosition.camera(withLatitude: 49.8383, longitude: 24.0232, zoom: 10.0)
     private let locationManager = LocationManager()
     
@@ -28,18 +28,34 @@ final class MapViewController: UIViewController {
         mapView.settings.compassButton = false
     }
     
+    // MARK: - IBAction
     @IBAction func searchLocation(_ sender: Any) {
         let autocompleteController = GMSAutocompleteViewController()
         autocompleteController.delegate = self
         self.present(autocompleteController, animated: true, completion: nil)
     }
     
+    // MARK: - Private
+    private func presentNoLocationController() {
+        guard let viewController = UIStoryboard(name: Constants.storyboardName, bundle: nil).instantiateViewController(withIdentifier: Constants.noLocationControllerStoryboardIdentifier   ) as? NoLocationViewController else { return }
+        guard let navigator = navigationController else { return }
+        navigator.present(viewController, animated: true)
+    }
+    
 }
 
+// MARK: - LocationManagerDelegate
 extension MapViewController: LocationManagerDelegate {
     
     func didChange(status: CLAuthorizationStatus) {
-        <#code#>
+        switch status {
+        case .notDetermined:
+            print("Not determined")
+        case .restricted,.denied:
+            presentNoLocationController()
+        case .authorizedAlways, .authorizedWhenInUse:
+            navigationController?.presentedViewController?.dismiss(animated: true, completion: nil)
+        }
     }
     
     func didReceiveUserLocation(_ location: CLLocation) {

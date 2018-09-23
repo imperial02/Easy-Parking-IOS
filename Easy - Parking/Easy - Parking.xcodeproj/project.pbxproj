@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1802829A2157938A00864217 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180282992157938A00864217 /* Constants.swift */; };
 		1802829E215794E100864217 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1802829D215794E100864217 /* LocationManager.swift */; };
+		180282A12157A17E00864217 /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180282A02157A17E00864217 /* AlertHelper.swift */; };
+		180282A6215814E500864217 /* NoLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180282A5215814E500864217 /* NoLocationViewController.swift */; };
 		18298E29214EE37E0071A1DE /* SFCompactDisplay-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 18298E14214EE37E0071A1DE /* SFCompactDisplay-Heavy.otf */; };
 		18298E2A214EE37E0071A1DE /* SFCompactText-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 18298E15214EE37E0071A1DE /* SFCompactText-Medium.otf */; };
 		18298E2B214EE37E0071A1DE /* SFCompactText-SemiboldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 18298E16214EE37E0071A1DE /* SFCompactText-SemiboldItalic.otf */; };
@@ -41,6 +43,8 @@
 /* Begin PBXFileReference section */
 		180282992157938A00864217 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1802829D215794E100864217 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		180282A02157A17E00864217 /* AlertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
+		180282A5215814E500864217 /* NoLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoLocationViewController.swift; sourceTree = "<group>"; };
 		18298E14214EE37E0071A1DE /* SFCompactDisplay-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFCompactDisplay-Heavy.otf"; sourceTree = "<group>"; };
 		18298E15214EE37E0071A1DE /* SFCompactText-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFCompactText-Medium.otf"; sourceTree = "<group>"; };
 		18298E16214EE37E0071A1DE /* SFCompactText-SemiboldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFCompactText-SemiboldItalic.otf"; sourceTree = "<group>"; };
@@ -110,6 +114,23 @@
 			path = LocationManager;
 			sourceTree = "<group>";
 		};
+		1802829F2157A17400864217 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				180282A02157A17E00864217 /* AlertHelper.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		180282A2215814B100864217 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				187BF103214ED4CC00F710D6 /* ViewController.swift */,
+				180282A5215814E500864217 /* NoLocationViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		18298E13214EE37E0071A1DE /* SF Compact */ = {
 			isa = PBXGroup;
 			children = (
@@ -160,10 +181,11 @@
 		187BF100214ED4CC00F710D6 /* Easy - Parking */ = {
 			isa = PBXGroup;
 			children = (
+				180282A2215814B100864217 /* Controllers */,
+				1802829F2157A17400864217 /* Helper */,
 				1802829B2157949E00864217 /* Managers */,
 				18028298215792D700864217 /* Constants */,
 				187BF101214ED4CC00F710D6 /* AppDelegate.swift */,
-				187BF103214ED4CC00F710D6 /* ViewController.swift */,
 				187BF105214ED4CC00F710D6 /* Main.storyboard */,
 				187BF108214ED4CE00F710D6 /* Assets.xcassets */,
 				187BF10A214ED4CE00F710D6 /* LaunchScreen.storyboard */,
@@ -200,8 +222,8 @@
 				187BF0FA214ED4CC00F710D6 /* Sources */,
 				187BF0FB214ED4CC00F710D6 /* Frameworks */,
 				187BF0FC214ED4CC00F710D6 /* Resources */,
-				85D9164B22E7CBD357B26BC8 /* [CP] Embed Pods Frameworks */,
-				B741E4F77F2F87EC1A8F0C1A /* [CP] Copy Pods Resources */,
+				74A724E1D864A65B52498F06 /* [CP] Copy Pods Resources */,
+				08B77178673E8A83D91D354E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -280,25 +302,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		47534C42E43E12EE8B88F839 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Easy - Parking-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		85D9164B22E7CBD357B26BC8 /* [CP] Embed Pods Frameworks */ = {
+		08B77178673E8A83D91D354E /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -318,7 +322,25 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Easy - Parking/Pods-Easy - Parking-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B741E4F77F2F87EC1A8F0C1A /* [CP] Copy Pods Resources */ = {
+		47534C42E43E12EE8B88F839 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Easy - Parking-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		74A724E1D864A65B52498F06 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -347,7 +369,9 @@
 			files = (
 				1802829E215794E100864217 /* LocationManager.swift in Sources */,
 				187BF104214ED4CC00F710D6 /* ViewController.swift in Sources */,
+				180282A6215814E500864217 /* NoLocationViewController.swift in Sources */,
 				187BF102214ED4CC00F710D6 /* AppDelegate.swift in Sources */,
+				180282A12157A17E00864217 /* AlertHelper.swift in Sources */,
 				1802829A2157938A00864217 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -496,6 +520,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2AUY752962;
 				INFOPLIST_FILE = "Easy - Parking/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -515,6 +540,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2AUY752962;
 				INFOPLIST_FILE = "Easy - Parking/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

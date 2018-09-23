@@ -20,6 +20,7 @@ protocol LocationManagerDelegate: class {
     func didReceiveUserLocation(_ location: CLLocation)
     func didReceiveError(_ error: Error)
     func showAlertForRestrictedCase()
+    func didChange(status : CLAuthorizationStatus)
 }
 
 class LocationManager: NSObject {
@@ -38,7 +39,7 @@ class LocationManager: NSObject {
     }
     
     // MARK: - Private
-    final private func askUserForLocationAccess() {
+     private func askUserForLocationAccess() {
         guard CLLocationManager.locationServicesEnabled() else { return }
         let status = CLLocationManager.authorizationStatus()
         switch status {
@@ -60,16 +61,20 @@ class LocationManager: NSObject {
 //MARK: - CLLocationManagerDelegate
 extension LocationManager: CLLocationManagerDelegate {
     
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    final func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let currentUserLocation = locations.last else { return }
         self.delegate?.didReceiveUserLocation(currentUserLocation)
         
     }
     
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+    final func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         locationManager.stopUpdatingLocation()
         print(error.localizedDescription)
         self.delegate?.didReceiveError(error)
+    }
+    
+    final func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        self.delegate?.didChange(status: status)
     }
     
 }

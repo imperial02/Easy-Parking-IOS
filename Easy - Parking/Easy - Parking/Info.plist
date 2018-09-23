@@ -4,8 +4,6 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Some cool text change in future</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -43,5 +41,11 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+    <string>Aplication would like to use your location</string>
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>Aplication would like to use your location</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>Aplication would like to use your location</string>
 </dict>
 </plist>
