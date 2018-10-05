@@ -11,13 +11,16 @@ import GooglePlaces
 import GoogleMaps
 
 final class MapViewController: UIViewController {
-
+    
     // MARK: - IBOutlet
-    @IBOutlet weak var mapView: GMSMapView!
+    @IBOutlet private weak var mapView: GMSMapView!
     
     // MARK: - Variables
     private let camera = GMSCameraPosition.camera(withLatitude: 49.8383, longitude: 24.0232, zoom: 10.0)
     private let locationManager = LocationManager()
+    private let networkManager = NetworkManager()
+    private var model: [Model] = []
+    private var dataSource: Model?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +29,7 @@ final class MapViewController: UIViewController {
         mapView.isMyLocationEnabled = true
         mapView.settings.myLocationButton = true
         mapView.settings.compassButton = false
+        fetchData()
     }
     
     // MARK: - IBAction
@@ -40,6 +44,29 @@ final class MapViewController: UIViewController {
         guard let viewController = UIStoryboard(name: Constants.storyboardName, bundle: nil).instantiateViewController(withIdentifier: Constants.noLocationControllerStoryboardIdentifier   ) as? NoLocationViewController else { return }
         guard let navigator = navigationController else { return }
         navigator.present(viewController, animated: true)
+    }
+    
+    private func fetchData() {
+        DispatchQueue.main.async {
+            self.networkManager.getPins(onSucess: { [weak self] model in
+                self?.model = model
+                self?.setPins()
+                print(model)
+            }) { [weak self] (error) in
+                guard let `self` = self else { return }
+                AlertHelper.showAlert(on: self, message: "Fuck", buttonTitle: "Ok", buttonAction: { })
+            }
+        }
+    }
+    
+    private func setPins() {
+        for place in model {
+            let marker = GMSMarker()
+            guard let longitute = place.lng else { return }
+            guard let latitude = place.lat else { return }
+            marker.position = CLLocationCoordinate2D(latitude: latitude, longitude: longitute)
+            marker.map = mapView
+        }
     }
     
 }
@@ -109,8 +136,11 @@ extension MapViewController: GMSAutocompleteViewControllerDelegate {
     func didUpdateAutocompletePredictions(forResultsController resultsController: GMSAutocompleteResultsViewController) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
     }
+    
 }
 
 extension MapViewController: GMSMapViewDelegate {
-    
+    func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
+        <#code#>
+    }
 }

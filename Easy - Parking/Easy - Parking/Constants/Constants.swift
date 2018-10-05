@@ -18,3 +18,9 @@ struct Constants {
     static let storyboardName = "Main"
     static let noLocationControllerStoryboardIdentifier = "NoLocationViewController"
 }
+
+struct EasyParkingURLConstants {
+    static let easyParkingSchema = "https"
+    static let easyParkingApiHost = "easyparking.pythonanywhere.com"
+    static let easyParkingApiPath = "/get/locations"
+}
