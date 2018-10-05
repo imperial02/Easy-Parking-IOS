@@ -39,6 +39,7 @@
 		187BF10C214ED4CE00F710D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 187BF10A214ED4CE00F710D6 /* LaunchScreen.storyboard */; };
 		18832C0E2160CF700025BA9C /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18832C0D2160CF700025BA9C /* NetworkManager.swift */; };
 		18832C1221615C670025BA9C /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18832C1121615C670025BA9C /* Model.swift */; };
+		18C040802167A9CC006CF61F /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C0407F2167A9CC006CF61F /* RoundButton.swift */; };
 		8D3772E72F8AAC9A69779889 /* Pods_Easy___Parking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F918986CD3CA0161DFCCC4B /* Pods_Easy___Parking.framework */; };
 /* End PBXBuildFile section */
 
@@ -77,6 +78,7 @@
 		187BF10D214ED4CE00F710D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18832C0D2160CF700025BA9C /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		18832C1121615C670025BA9C /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		18C0407F2167A9CC006CF61F /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RoundButton.swift; path = "Easy - Parking/RoundButton.swift"; sourceTree = SOURCE_ROOT; };
 		1F918986CD3CA0161DFCCC4B /* Pods_Easy___Parking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_Easy___Parking.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		79DE76B3B8EB32280B6CE5FB /* Pods-Easy - Parking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Easy - Parking.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Easy - Parking/Pods-Easy - Parking.debug.xcconfig"; sourceTree = "<group>"; };
 		B4A7ECF4EAA9FF1DD1C619E5 /* Pods-Easy - Parking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Easy - Parking.release.xcconfig"; path = "Pods/Target Support Files/Pods-Easy - Parking/Pods-Easy - Parking.release.xcconfig"; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 		187BF100214ED4CC00F710D6 /* Easy - Parking */ = {
 			isa = PBXGroup;
 			children = (
+				18C0407E2167A96E006CF61F /* View */,
 				18832C0F2160CF780025BA9C /* Model */,
 				180282A2215814B100864217 /* Controllers */,
 				1802829F2157A17400864217 /* Helper */,
@@ -214,6 +217,14 @@
 				18832C1121615C670025BA9C /* Model.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		18C0407E2167A96E006CF61F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				18C0407F2167A9CC006CF61F /* RoundButton.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		A6B30141B196EC2B60954FDC /* Pods */ = {
@@ -389,6 +400,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18C040802167A9CC006CF61F /* RoundButton.swift in Sources */,
 				1802829E215794E100864217 /* LocationManager.swift in Sources */,
 				187BF104214ED4CC00F710D6 /* MapViewController.swift in Sources */,
 				180282A6215814E500864217 /* NoLocationViewController.swift in Sources */,

@@ -108,6 +108,7 @@ extension MapViewController: LocationManagerDelegate {
     
 }
 
+//MARK: - GMSAutocompleteViewControllerDelegate
 extension MapViewController: GMSAutocompleteViewControllerDelegate {
     
     func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
@@ -139,8 +140,7 @@ extension MapViewController: GMSAutocompleteViewControllerDelegate {
     
 }
 
+//MARK: - GMSMapViewDelegate
 extension MapViewController: GMSMapViewDelegate {
-    func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
-        <#code#>
-    }
+  
 }

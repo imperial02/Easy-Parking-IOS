@@ -14,5 +14,13 @@ class NoLocationViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    @IBAction func didTapOnSettingsButton(_ sender: UIButton) {
+        guard let settingsUrl = URL(string: UIApplicationOpenSettingsURLString) else { return }
+        UIApplication.shared.open(settingsUrl)
+    }
 
 }
