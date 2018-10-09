@@ -10,7 +10,7 @@ import Alamofire
 import SwiftyJSON
 
 protocol NetworkManagerProtocol {
-    func getPins( onSucess: @escaping ([Model]) -> (), onError: @escaping (Error) -> ())
+    func getPins( onSucess: @escaping ([Model]) -> (), onError: @escaping (String) -> ())
 }
 
 class NetworkManager: NetworkManagerProtocol {
@@ -23,37 +23,23 @@ class NetworkManager: NetworkManagerProtocol {
         return urlComponents.url
     }
     
-    func getPins(onSucess: @escaping ([Model]) -> (), onError: @escaping (Error) -> ()) {
+    func getPins(onSucess: @escaping ([Model]) -> (), onError: @escaping (String) -> ()) {
         
         guard let url = getParkingURL() else { return }
         var urlRequest = URLRequest(url: url)
         urlRequest.timeoutInterval = 10
         Alamofire.request(urlRequest).responseJSON { [weak self] (response) in
             if let error = response.error {
-                onError(error)
+                onError(error.localizedDescription)
+            } else if let jsonValue = response.result.value {
+                let json = JSON(jsonValue)
+                let placesList = json["location"].arrayValue
+                let places = placesList.map { Model(json: $0) }
+                onSucess(places)
             } else {
-                DispatchQueue.main.async {
-                    
-                    guard let jsonData = response.value else { return }
-                    guard let models = self?.parseResponce(jsonData: jsonData) else { return }
-                    onSucess(models)
-                }
+                onError("unhandled result")
             }
         }
-    }
-    
-    private func parseResponce(jsonData: Any) -> [Model] {
-        let jsonValue = JSON(jsonData)
-        let locations = jsonValue["location"].arrayValue
-        var models = [Model]()
-        for location in locations {
-            let name = location["name"].stringValue
-            let location_id = location["location_id"].intValue
-            let lng = location["lng"].doubleValue
-            let lat = location["lat"].doubleValue
-            models.append(Model(lat: lat, lng: lng, locationID: location_id, name: name))
-        }
-        return models
     }
     
 }

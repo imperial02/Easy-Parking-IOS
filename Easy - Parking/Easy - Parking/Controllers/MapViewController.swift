@@ -50,7 +50,7 @@ final class MapViewController: UIViewController {
         DispatchQueue.main.async {
             self.networkManager.getPins(onSucess: { [weak self] model in
                 self?.model = model
-                self?.setPins()
+                self?.createAnnotations(for: model)
                 print(model)
             }) { [weak self] (error) in
                 guard let `self` = self else { return }
@@ -59,12 +59,9 @@ final class MapViewController: UIViewController {
         }
     }
     
-    private func setPins() {
-        for place in model {
-            let marker = GMSMarker()
-            guard let longitute = place.lng else { return }
-            guard let latitude = place.lat else { return }
-            marker.position = CLLocationCoordinate2D(latitude: latitude, longitude: longitute)
+    private func createAnnotations(for parkingPlaces: [Model]) {
+        parkingPlaces.forEach {
+            let marker = ParkingPins(parkingPlaces: $0)
             marker.map = mapView
         }
     }
@@ -105,7 +102,6 @@ extension MapViewController: LocationManagerDelegate {
         }
     }
     
-    
 }
 
 //MARK: - GMSAutocompleteViewControllerDelegate
@@ -142,5 +138,10 @@ extension MapViewController: GMSAutocompleteViewControllerDelegate {
 
 //MARK: - GMSMapViewDelegate
 extension MapViewController: GMSMapViewDelegate {
-  
+    
+    func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
+        print("hello")
+        return true
+    }
+    
 }
