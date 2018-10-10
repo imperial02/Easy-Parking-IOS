@@ -22,6 +22,7 @@ final class MapViewController: UIViewController {
     private var model: [Model] = []
     private var dataSource: Model?
     
+    //MARK - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
