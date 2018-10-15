@@ -20,7 +20,7 @@ final class MapViewController: UIViewController {
     private let locationManager = LocationManager()
     private let networkManager = NetworkManager()
     private var model: [Model] = []
-    private var dataSource: Model?
+    private var userLocation = CLLocation()
     
     //MARK - Life Cycle
     override func viewDidLoad() {
@@ -84,7 +84,9 @@ extension MapViewController: LocationManagerDelegate {
     }
     
     func didReceiveUserLocation(_ location: CLLocation) {
-        print("\(location)")
+        DispatchQueue.main.async { [weak self] in
+            self?.userLocation = location
+        }
     }
     
     func didReceiveError(_ error: Error) {

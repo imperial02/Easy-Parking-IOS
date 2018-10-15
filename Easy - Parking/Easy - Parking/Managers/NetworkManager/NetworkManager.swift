@@ -28,7 +28,7 @@ class NetworkManager: NetworkManagerProtocol {
         guard let url = getParkingURL() else { return }
         var urlRequest = URLRequest(url: url)
         urlRequest.timeoutInterval = 10
-        Alamofire.request(urlRequest).responseJSON { [weak self] (response) in
+        Alamofire.request(urlRequest).responseJSON { (response) in
             if let error = response.error {
                 onError(error.localizedDescription)
             } else if let jsonValue = response.result.value {
