@@ -24,3 +24,15 @@ struct EasyParkingURLConstants {
     static let easyParkingApiHost = "easyparking.pythonanywhere.com"
     static let easyParkingApiPath = "/get/locations"
 }
+
+struct NotificationConstants {
+    static let notificationMessageTitle = "You leave your previous region"
+    static let notificationMessageSubTitle = "Check app to see new images"
+    static let notificationMessageBody = "You get new photoooooooos"
+    static let notificationMessageIdentifier = "notificationIdentifier"
+    static let openNotificationActionIdentifier = "OPEN"
+    static let openNotificationActionTitle = "Open App"
+    static let cancelNotificationActionIdentifier = "CANCEL"
+    static let cancelNotificationActionTitle = "Close"
+    static let categoryIdentifier = "Category"
+}
