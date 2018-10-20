@@ -9,6 +9,11 @@
 import UIKit
 import GooglePlaces
 import GoogleMaps
+import CoreLocation
+
+protocol MapViewControllerDelegate: class {
+    func didReceivePinCoordinate(_ location: CLLocation)
+}
 
 final class MapViewController: UIViewController {
     

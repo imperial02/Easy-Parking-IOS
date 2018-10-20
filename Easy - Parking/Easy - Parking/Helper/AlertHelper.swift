@@ -22,6 +22,7 @@ final class AlertHelper {
         }
         let openAction = UIAlertAction(title: buttonTitle, style: .default) { action in buttonAction() }
         alertController.addAction(openAction)
+        alertController.view.tintColor = .darkGray
         owner.present(alertController, animated: true, completion: nil)
     }
     

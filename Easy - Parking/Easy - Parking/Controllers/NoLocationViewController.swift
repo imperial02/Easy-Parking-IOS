@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NoLocationViewController: UIViewController {
+final class NoLocationViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

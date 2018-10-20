@@ -26,9 +26,9 @@ struct EasyParkingURLConstants {
 }
 
 struct NotificationConstants {
-    static let notificationMessageTitle = "You leave your previous region"
-    static let notificationMessageSubTitle = "Check app to see new images"
-    static let notificationMessageBody = "You get new photoooooooos"
+    static let notificationMessageTitle = "We find free parking space"
+    static let notificationMessageSubTitle = "Some text"
+    static let notificationMessageBody = "The close free place is:"
     static let notificationMessageIdentifier = "notificationIdentifier"
     static let openNotificationActionIdentifier = "OPEN"
     static let openNotificationActionTitle = "Open App"

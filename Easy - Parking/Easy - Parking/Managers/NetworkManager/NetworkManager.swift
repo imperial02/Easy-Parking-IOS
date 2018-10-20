@@ -15,15 +15,8 @@ protocol NetworkManagerProtocol {
 
 class NetworkManager: NetworkManagerProtocol {
     
-    private func getParkingURL() -> URL? {
-        var urlComponents = URLComponents()
-        urlComponents.scheme = EasyParkingURLConstants.easyParkingSchema
-        urlComponents.host = EasyParkingURLConstants.easyParkingApiHost
-        urlComponents.path = EasyParkingURLConstants.easyParkingApiPath
-        return urlComponents.url
-    }
     
-    func getPins(onSucess: @escaping ([Model]) -> (), onError: @escaping (String) -> ()) {
+   public func getPins(onSucess: @escaping ([Model]) -> (), onError: @escaping (String) -> ()) {
         
         guard let url = getParkingURL() else { return }
         var urlRequest = URLRequest(url: url)
@@ -40,6 +33,14 @@ class NetworkManager: NetworkManagerProtocol {
                 onError("unhandled result")
             }
         }
+    }
+    
+    private func getParkingURL() -> URL? {
+        var urlComponents = URLComponents()
+        urlComponents.scheme = EasyParkingURLConstants.easyParkingSchema
+        urlComponents.host = EasyParkingURLConstants.easyParkingApiHost
+        urlComponents.path = EasyParkingURLConstants.easyParkingApiPath
+        return urlComponents.url
     }
     
 }
