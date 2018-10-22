@@ -16,6 +16,12 @@ enum PermissionState: String {
     case restricted
 }
 
+enum RegionState: String {
+    case unknown
+    case inside
+    case outside
+}
+
 protocol LocationManagerDelegate: class {
     func didReceiveUserLocation(_ location: CLLocation)
     func didReceiveError(_ error: Error)
@@ -27,7 +33,17 @@ class LocationManager: NSObject {
     
     // MARK: - Variables
     private let locationManager = CLLocationManager()
+    private let notificationManager = NotificationManager()
     private weak var delegate: LocationManagerDelegate?
+    private var markerCoordinate: CLLocation? {
+        didSet {
+            guard let coordinate = markerCoordinate else { return }
+            let center = CLLocationCoordinate2D(latitude: coordinate.coordinate.latitude, longitude: coordinate.coordinate.longitude)
+            let markerRegion = CLCircularRegion(center: center, radius: RegionConstants.radius, identifier: RegionConstants.regionIdentifier)
+            markerRegion.notifyOnEntry = true
+            locationManager.startMonitoring(for: markerRegion)
+        }
+    }
     
     override init() {
         super.init()
@@ -64,7 +80,6 @@ extension LocationManager: CLLocationManagerDelegate {
     final func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let currentUserLocation = locations.last else { return }
         self.delegate?.didReceiveUserLocation(currentUserLocation)
-        
     }
     
     final func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
@@ -77,4 +92,43 @@ extension LocationManager: CLLocationManagerDelegate {
         self.delegate?.didChange(status: status)
     }
     
+    final func locationManager(_ manager: CLLocationManager, didStartMonitoringFor region: CLRegion) {
+        locationManager.requestState(for: region)
+        print("Monitoring \(region.identifier)")
+    }
+    
+    final func locationManager(_ manager: CLLocationManager, monitoringDidFailFor region: CLRegion?, withError error: Error) {
+        guard let currentRegion = region else { return }
+        locationManager.stopMonitoring(for: currentRegion)
+        print(error.localizedDescription)
+    }
+    
+    final func locationManager(_ manager: CLLocationManager, didDetermineState state: CLRegionState, for region: CLRegion) {
+        switch state {
+        case .unknown:
+            print(RegionState.unknown.rawValue)
+        case .inside:
+            print(RegionState.inside.rawValue)
+        case .outside:
+            print(RegionState.outside.rawValue)
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
+        locationManager.stopMonitoring(for: region)
+        print("Stop monitoring for \(region)")
+    }
+    
+    final func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
+        locationManager.startMonitoring(for: region)
+        notificationManager.showNotification()
+    }
+    
 }
+
+extension LocationManager: MapManagerDelegate {
+    func didReceivePinCoordinate(_ location: CLLocation) {
+        self.markerCoordinate = location
+    }
+}
+

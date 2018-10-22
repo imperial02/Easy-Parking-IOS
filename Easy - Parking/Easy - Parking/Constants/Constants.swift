@@ -6,8 +6,10 @@
 //  Copyright © 2018 Easy-Parking. All rights reserved.
 //
 
+import CoreLocation
+
 struct Constants {
-    static let googleApiKey = "AIzaSyDXc-Q2sl5nh3_PnNhedALC8u40uKtuGqI"
+    static let googleApiKey = "AIzaSyB0hFRsHyWdduLXZrkdIPMrL2SGFOHAe90"
     static let alertTitle = "Ooops.."
     static let alertMessage = "Smth goes wrong check your Internet"
     static let alertButtonTitle = "Ok"
@@ -35,4 +37,9 @@ struct NotificationConstants {
     static let cancelNotificationActionIdentifier = "CANCEL"
     static let cancelNotificationActionTitle = "Close"
     static let categoryIdentifier = "Category"
+}
+
+struct RegionConstants {
+    static let regionIdentifier = "Region"
+    static let radius: CLLocationDistance = 200
 }

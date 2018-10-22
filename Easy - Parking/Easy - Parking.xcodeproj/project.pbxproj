@@ -73,6 +73,7 @@
 		18298E27214EE37E0071A1DE /* SFCompactText-LightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFCompactText-LightItalic.otf"; sourceTree = "<group>"; };
 		18298E28214EE37E0071A1DE /* SFCompactDisplay-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFCompactDisplay-Thin.otf"; sourceTree = "<group>"; };
 		1830252A2174AAC8007FCBD9 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		1874AE53217BB5150050A95C /* PLVision.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PLVision.gpx; sourceTree = "<group>"; };
 		187BF0FE214ED4CC00F710D6 /* Easy - Parking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Easy - Parking.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		187BF101214ED4CC00F710D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		187BF103214ED4CC00F710D6 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -81,6 +82,7 @@
 		187BF10B214ED4CE00F710D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		187BF10D214ED4CE00F710D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		188219D9217B356A00003A84 /* DesignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignView.swift; sourceTree = "<group>"; };
+		188219DC217B492600003A84 /* Home.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Home.gpx; sourceTree = "<group>"; };
 		18832C0D2160CF700025BA9C /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		18832C1121615C670025BA9C /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		18AFA9D7216CE68D00C83EF2 /* ParkingPins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingPins.swift; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 		187BF100214ED4CC00F710D6 /* Easy - Parking */ = {
 			isa = PBXGroup;
 			children = (
+				188219DB217B490A00003A84 /* GPX */,
 				18C0407E2167A96E006CF61F /* View */,
 				18832C0F2160CF780025BA9C /* Model */,
 				180282A2215814B100864217 /* Controllers */,
@@ -216,6 +219,15 @@
 				187BF10D214ED4CE00F710D6 /* Info.plist */,
 			);
 			path = "Easy - Parking";
+			sourceTree = "<group>";
+		};
+		188219DB217B490A00003A84 /* GPX */ = {
+			isa = PBXGroup;
+			children = (
+				188219DC217B492600003A84 /* Home.gpx */,
+				1874AE53217BB5150050A95C /* PLVision.gpx */,
+			);
+			path = GPX;
 			sourceTree = "<group>";
 		};
 		18832C0C2160CF530025BA9C /* NetworkManager */ = {
@@ -576,14 +588,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2AUY752962;
+				DEVELOPMENT_TEAM = 65ZCMBX653;
 				INFOPLIST_FILE = "Easy - Parking/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.pythonanywhere.easyparking.www.Easy---Parking";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pythonanywhere.easyparking;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -596,14 +608,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2AUY752962;
+				DEVELOPMENT_TEAM = 65ZCMBX653;
 				INFOPLIST_FILE = "Easy - Parking/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.pythonanywhere.easyparking.www.Easy---Parking";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pythonanywhere.easyparking;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

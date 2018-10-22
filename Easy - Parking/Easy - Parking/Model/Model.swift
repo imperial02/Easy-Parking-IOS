@@ -18,7 +18,8 @@ struct Model {
     let name: String?
     
     var coordinate: CLLocationCoordinate2D? {
-        guard let lat = Double(lat ?? "0"), let lon = Double(lng ?? "0") else { return nil }
+        guard let lat = Double(lat ?? "0")
+            , let lon = Double(lng ?? "0") else { return nil }
         return CLLocationCoordinate2D(latitude: lat, longitude: lon)
     }
     

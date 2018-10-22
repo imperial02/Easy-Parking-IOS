@@ -56,7 +56,7 @@ class NotificationManager: NSObject {
         let options: UNAuthorizationOptions = [.alert, .sound];
         notificationCenter.requestAuthorization(options: options) { (granted, error) in
             if granted {
-                print ("Notifications permission granted")
+                print("good")
             } else {
                 guard let permissionError = error else { return }
                 print("Notifications permission denied because: \(permissionError.localizedDescription).")

@@ -11,7 +11,7 @@ import GooglePlaces
 import GoogleMaps
 import CoreLocation
 
-protocol MapViewControllerDelegate: class {
+protocol MapManagerDelegate: class {
     func didReceivePinCoordinate(_ location: CLLocation)
 }
 
@@ -26,6 +26,7 @@ final class MapViewController: UIViewController {
     private let networkManager = NetworkManager()
     private var model: [Model] = []
     private var userLocation = CLLocation()
+    weak var delegate: MapManagerDelegate?
     
     //MARK - Life Cycle
     override func viewDidLoad() {
@@ -35,6 +36,7 @@ final class MapViewController: UIViewController {
         mapView.isMyLocationEnabled = true
         mapView.settings.myLocationButton = true
         mapView.settings.compassButton = false
+        self.delegate = locationManager
         fetchData()
     }
     
@@ -60,7 +62,7 @@ final class MapViewController: UIViewController {
                 print(model)
             }) { [weak self] (error) in
                 guard let `self` = self else { return }
-                AlertHelper.showAlert(on: self, message: "Fuck", buttonTitle: "Ok", buttonAction: { })
+                AlertHelper.showAlert(on: self, message: "Please check your intenet :(", buttonTitle: "Ok", buttonAction: { })
             }
         }
     }
@@ -148,7 +150,11 @@ extension MapViewController: GMSAutocompleteViewControllerDelegate {
 extension MapViewController: GMSMapViewDelegate {
     
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
-        print("hello")
+        if let pin = marker as? ParkingPins {
+             let coordinate = CLLocation(latitude: (pin.places?.coordinate?.latitude)!, longitude: (pin.places?.coordinate?.longitude)!)
+            self.delegate?.didReceivePinCoordinate(coordinate)
+            print(coordinate)
+        }
         return true
     }
     
