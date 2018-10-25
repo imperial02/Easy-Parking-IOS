@@ -40,7 +40,7 @@ extension GMSMapView {
                     let path = GMSPath.init(fromEncodedPath: points!)
                     let polyline = GMSPolyline.init(path: path)
                     polyline.strokeWidth = 4
-                    polyline.strokeColor = UIColor.red
+                    polyline.strokeColor = UIColor(red: 200, green: 100 , blue: 3, alpha: 1.0)
                     polyline.map = googleMaps
                 }
             } else {
