@@ -34,7 +34,7 @@ class LocationManager: NSObject {
     // MARK: - Variables
     private let locationManager = CLLocationManager()
     private let notificationManager = NotificationManager()
-    private weak var delegate: LocationManagerDelegate?
+    weak var delegate: LocationManagerDelegate?
     private var markerCoordinate: CLLocation? {
         didSet {
             guard let coordinate = markerCoordinate else { return }
@@ -128,7 +128,9 @@ extension LocationManager: CLLocationManagerDelegate {
 
 extension LocationManager: MapManagerDelegate {
     func didReceivePinCoordinate(_ location: CLLocation) {
-        self.markerCoordinate = location
+        DispatchQueue.main.async { [weak self] in
+            self?.markerCoordinate = location
+        }
     }
 }
 

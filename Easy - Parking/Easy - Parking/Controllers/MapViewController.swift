@@ -37,6 +37,7 @@ final class MapViewController: UIViewController {
         mapView.settings.myLocationButton = true
         mapView.settings.compassButton = false
         self.delegate = locationManager
+        locationManager.delegate = self
         fetchData()
     }
     
@@ -79,6 +80,13 @@ final class MapViewController: UIViewController {
 // MARK: - LocationManagerDelegate
 extension MapViewController: LocationManagerDelegate {
     
+    func didReceiveUserLocation(_ location: CLLocation) {
+        DispatchQueue.main.async { [weak self] in
+            self?.userLocation = location
+        }
+    }
+    
+    
     func didChange(status: CLAuthorizationStatus) {
         switch status {
         case .notDetermined:
@@ -87,12 +95,6 @@ extension MapViewController: LocationManagerDelegate {
             presentNoLocationController()
         case .authorizedAlways, .authorizedWhenInUse:
             navigationController?.presentedViewController?.dismiss(animated: true, completion: nil)
-        }
-    }
-    
-    func didReceiveUserLocation(_ location: CLLocation) {
-        DispatchQueue.main.async { [weak self] in
-            self?.userLocation = location
         }
     }
     
@@ -151,9 +153,9 @@ extension MapViewController: GMSMapViewDelegate {
     
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
         if let pin = marker as? ParkingPins {
-             let coordinate = CLLocation(latitude: (pin.places?.coordinate?.latitude)!, longitude: (pin.places?.coordinate?.longitude)!)
+            let coordinate = CLLocation(latitude: (pin.places?.coordinate?.latitude)!, longitude: (pin.places?.coordinate?.longitude)!)
             self.delegate?.didReceivePinCoordinate(coordinate)
-            print(coordinate)
+            mapView.drawPath(googleMaps: mapView, startLocation: userLocation, endLocation: coordinate)
         }
         return true
     }

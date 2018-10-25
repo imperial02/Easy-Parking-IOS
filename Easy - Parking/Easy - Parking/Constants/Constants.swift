@@ -41,5 +41,19 @@ struct NotificationConstants {
 
 struct RegionConstants {
     static let regionIdentifier = "Region"
-    static let radius: CLLocationDistance = 200
+    static let radius: CLLocationDistance = 1000
+}
+
+struct GoogleConstants {
+    static let googleSchema = "https"
+    static let googleHost = "maps.googleapis.com"
+    static let googlePath = "/maps/api/directions/json"
+}
+
+struct JSONParameters {
+    static let origin = "origin"
+    static let destination = "destination"
+    static let mode = "mode"
+    static let drivingMode = "driving"
+    static let key = "key"
 }
