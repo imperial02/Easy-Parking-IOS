@@ -128,7 +128,7 @@ extension LocationManager: CLLocationManagerDelegate {
 
 extension LocationManager: MapManagerDelegate {
     func didReceivePinCoordinate(_ location: CLLocation) {
-        DispatchQueue.main.async { [weak self] in
+        Async.mainQueue { [weak self] in
             self?.markerCoordinate = location
         }
     }

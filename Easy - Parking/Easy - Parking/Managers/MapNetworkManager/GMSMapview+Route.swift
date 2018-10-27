@@ -13,6 +13,7 @@ import Alamofire
 import GoogleMaps
 import GooglePlaces
 
+//MARK: - GMSMapView+RouteExtension 
 extension GMSMapView {
     func drawPath(googleMaps: GMSMapView ,startLocation: CLLocation, endLocation: CLLocation)
     {
@@ -21,33 +22,33 @@ extension GMSMapView {
         
         
         guard let url = getGoogleUrl(startLocation: origin, endLocation: destination) else { return }
-        
-        Alamofire.request(url).responseJSON { response in
-            
-            print(response.request as Any)  // original URL request
-            print(response.response as Any) // HTTP URL response
-            print(response.data as Any)     // server data
-            print(response.result as Any)   // result of response serialization
-            if let error = response.error {
-                print(error.localizedDescription)
-            } else if let jsonValue = response.result.value {
-                let json = JSON(jsonValue)
-                let routes = json["routes"].arrayValue
-                for route in routes
-                {
-                    let routeOverviewPolyline = route["overview_polyline"].dictionary
-                    let points = routeOverviewPolyline?["points"]?.stringValue
-                    let path = GMSPath.init(fromEncodedPath: points!)
-                    let polyline = GMSPolyline.init(path: path)
-                    polyline.strokeWidth = 4
-                    polyline.strokeColor = UIColor(red: 200, green: 100 , blue: 3, alpha: 1.0)
-                    polyline.map = googleMaps
+        Async.mainQueue {
+             Alamofire.request(url).responseJSON { response in
+                
+                print(response.request as Any)  // original URL request
+                print(response.response as Any) // HTTP URL response
+                print(response.data as Any)     // server data
+                print(response.result as Any)   // result of response serialization
+                if let error = response.error {
+                    print(error.localizedDescription)
+                } else if let jsonValue = response.result.value {
+                    let json = JSON(jsonValue)
+                    let routes = json["routes"].arrayValue
+                    for route in routes
+                    {
+                        let routeOverviewPolyline = route["overview_polyline"].dictionary
+                        let points = routeOverviewPolyline?["points"]?.stringValue
+                        let path = GMSPath.init(fromEncodedPath: points!)
+                        let polyline = GMSPolyline.init(path: path)
+                        polyline.strokeWidth = 4
+                        polyline.strokeColor = UIColor(red: 200, green: 100 , blue: 3, alpha: 1.0)
+                        polyline.map = googleMaps
+                    }
+                } else {
+                    print("Smth goes wrong")
                 }
-            } else {
-                print("Smth goes wrong")
-            }
-             
         }
+     }
     }
     
     private func getGoogleUrl(startLocation: String, endLocation: String) -> URL? {

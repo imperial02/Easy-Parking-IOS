@@ -56,7 +56,7 @@ final class MapViewController: UIViewController {
     }
     
     private func fetchData() {
-        DispatchQueue.main.async {
+        Async.mainQueue {
             self.networkManager.getPins(onSucess: { [weak self] model in
                 self?.model = model
                 self?.createAnnotations(for: model)
@@ -64,6 +64,7 @@ final class MapViewController: UIViewController {
             }) { [weak self] (error) in
                 guard let `self` = self else { return }
                 AlertHelper.showAlert(on: self, message: "Please check your intenet :(", buttonTitle: "Ok", buttonAction: { })
+                self.mapView.isHidden = true
             }
         }
     }
@@ -81,11 +82,11 @@ final class MapViewController: UIViewController {
 extension MapViewController: LocationManagerDelegate {
     
     func didReceiveUserLocation(_ location: CLLocation) {
-        DispatchQueue.main.async { [weak self] in
+        Async.mainQueue { [weak self] in
             self?.userLocation = location
+
         }
     }
-    
     
     func didChange(status: CLAuthorizationStatus) {
         switch status {
@@ -103,7 +104,7 @@ extension MapViewController: LocationManagerDelegate {
     }
     
     func showAlertForRestrictedCase() {
-        DispatchQueue.main.async { [weak self] in
+        Async.mainQueue { [weak self] in
             guard let `self` = self else { return }
             AlertHelper.showAlert(on: self, title: Constants.restrictedAlertTitle,
                                   message: Constants.restrictedAlertMessage,
