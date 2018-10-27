@@ -26,6 +26,8 @@ final class MapViewController: UIViewController {
     private let networkManager = NetworkManager()
     private var model: [Model] = []
     private var userLocation = CLLocation()
+    fileprivate lazy var sectionViewController: UIViewController = self.initialViewControllerFromStoryboard(Constants.sectionStoryboadrIdentifier)
+    private let polyline = GMSPolyline()
     weak var delegate: MapManagerDelegate?
     
     //MARK - Life Cycle
@@ -53,6 +55,15 @@ final class MapViewController: UIViewController {
         guard let viewController = UIStoryboard(name: Constants.storyboardName, bundle: nil).instantiateViewController(withIdentifier: Constants.noLocationControllerStoryboardIdentifier   ) as? NoLocationViewController else { return }
         guard let navigator = navigationController else { return }
         navigator.present(viewController, animated: true)
+    }
+    
+    private func initialViewControllerFromStoryboard<T>(_ name: String) -> T {
+        let storyboard = UIStoryboard(name: name, bundle: nil)
+        let identifier = String(describing: T.self)
+        guard let viewController = storyboard.instantiateViewController(withIdentifier: identifier) as? T else {
+            fatalError("Missing \(identifier) in Storyboard")
+        }
+        return viewController
     }
     
     private func fetchData() {
@@ -84,7 +95,6 @@ extension MapViewController: LocationManagerDelegate {
     func didReceiveUserLocation(_ location: CLLocation) {
         Async.mainQueue { [weak self] in
             self?.userLocation = location
-
         }
     }
     

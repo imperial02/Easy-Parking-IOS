@@ -19,6 +19,7 @@ struct Constants {
     static let restrictedAlertButtonName = "Ok"
     static let storyboardName = "Main"
     static let noLocationControllerStoryboardIdentifier = "NoLocationViewController"
+    static let sectionStoryboadrIdentifier = "SectionStoryboard"
 }
 
 struct EasyParkingURLConstants {

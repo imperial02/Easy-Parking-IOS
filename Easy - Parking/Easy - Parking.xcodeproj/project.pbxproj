@@ -47,6 +47,10 @@
 		18E815B1218456C600A4B73F /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E815B0218456C600A4B73F /* ReachabilityManager.swift */; };
 		18E815B42184582A00A4B73F /* Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E815B32184582A00A4B73F /* Async.swift */; };
 		18E815B72184602900A4B73F /* NoInternetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18E815B62184602900A4B73F /* NoInternetView.xib */; };
+		18E815B921846ED000A4B73F /* SectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E815B821846ED000A4B73F /* SectionViewController.swift */; };
+		18E815BD21846F2500A4B73F /* SectionsCollectioViewCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E815BB21846F2500A4B73F /* SectionsCollectioViewCellCollectionViewCell.swift */; };
+		18E815BE21846F2500A4B73F /* SectionsCollectioViewCellCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18E815BC21846F2500A4B73F /* SectionsCollectioViewCellCollectionViewCell.xib */; };
+		18E815C0218474CD00A4B73F /* SectionStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18E815BF218474CD00A4B73F /* SectionStoryboard.storyboard */; };
 		8D3772E72F8AAC9A69779889 /* Pods_Easy___Parking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F918986CD3CA0161DFCCC4B /* Pods_Easy___Parking.framework */; };
 /* End PBXBuildFile section */
 
@@ -96,6 +100,10 @@
 		18E815B0218456C600A4B73F /* ReachabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
 		18E815B32184582A00A4B73F /* Async.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Async.swift; sourceTree = "<group>"; };
 		18E815B62184602900A4B73F /* NoInternetView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoInternetView.xib; sourceTree = "<group>"; };
+		18E815B821846ED000A4B73F /* SectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionViewController.swift; sourceTree = "<group>"; };
+		18E815BB21846F2500A4B73F /* SectionsCollectioViewCellCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionsCollectioViewCellCollectionViewCell.swift; sourceTree = "<group>"; };
+		18E815BC21846F2500A4B73F /* SectionsCollectioViewCellCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionsCollectioViewCellCollectionViewCell.xib; sourceTree = "<group>"; };
+		18E815BF218474CD00A4B73F /* SectionStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SectionStoryboard.storyboard; sourceTree = "<group>"; };
 		1F918986CD3CA0161DFCCC4B /* Pods_Easy___Parking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_Easy___Parking.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		79DE76B3B8EB32280B6CE5FB /* Pods-Easy - Parking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Easy - Parking.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Easy - Parking/Pods-Easy - Parking.debug.xcconfig"; sourceTree = "<group>"; };
 		B4A7ECF4EAA9FF1DD1C619E5 /* Pods-Easy - Parking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Easy - Parking.release.xcconfig"; path = "Pods/Target Support Files/Pods-Easy - Parking/Pods-Easy - Parking.release.xcconfig"; sourceTree = "<group>"; };
@@ -154,6 +162,7 @@
 			children = (
 				187BF103214ED4CC00F710D6 /* MapViewController.swift */,
 				180282A5215814E500864217 /* NoLocationViewController.swift */,
+				18E815B821846ED000A4B73F /* SectionViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -237,6 +246,7 @@
 				187BF108214ED4CE00F710D6 /* Assets.xcassets */,
 				187BF10A214ED4CE00F710D6 /* LaunchScreen.storyboard */,
 				187BF10D214ED4CE00F710D6 /* Info.plist */,
+				18E815BF218474CD00A4B73F /* SectionStoryboard.storyboard */,
 			);
 			path = "Easy - Parking";
 			sourceTree = "<group>";
@@ -271,6 +281,7 @@
 		18C0407E2167A96E006CF61F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				18E815BA21846F0900A4B73F /* Cells */,
 				18C0407F2167A9CC006CF61F /* RoundButton.swift */,
 				188219D9217B356A00003A84 /* DesignView.swift */,
 				18E815B62184602900A4B73F /* NoInternetView.xib */,
@@ -292,6 +303,15 @@
 				18E815B32184582A00A4B73F /* Async.swift */,
 			);
 			path = ConcurrencyUtils;
+			sourceTree = "<group>";
+		};
+		18E815BA21846F0900A4B73F /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				18E815BB21846F2500A4B73F /* SectionsCollectioViewCellCollectionViewCell.swift */,
+				18E815BC21846F2500A4B73F /* SectionsCollectioViewCellCollectionViewCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		A6B30141B196EC2B60954FDC /* Pods */ = {
@@ -384,12 +404,14 @@
 				187BF10C214ED4CE00F710D6 /* LaunchScreen.storyboard in Resources */,
 				18298E3C214EE37E0071A1DE /* SFCompactText-LightItalic.otf in Resources */,
 				18E815B72184602900A4B73F /* NoInternetView.xib in Resources */,
+				18E815C0218474CD00A4B73F /* SectionStoryboard.storyboard in Resources */,
 				18298E32214EE37E0071A1DE /* SFCompactDisplay-Regular.otf in Resources */,
 				18298E2E214EE37E0071A1DE /* SFCompactText-BoldItalic.otf in Resources */,
 				18298E34214EE37E0071A1DE /* SFCompactText-Semibold.otf in Resources */,
 				18298E2A214EE37E0071A1DE /* SFCompactText-Medium.otf in Resources */,
 				18298E2D214EE37E0071A1DE /* SFCompactText-Regular.otf in Resources */,
 				18298E29214EE37E0071A1DE /* SFCompactDisplay-Heavy.otf in Resources */,
+				18E815BE21846F2500A4B73F /* SectionsCollectioViewCellCollectionViewCell.xib in Resources */,
 				18298E3B214EE37E0071A1DE /* SFCompactText-HeavyItalic.otf in Resources */,
 				187BF109214ED4CE00F710D6 /* Assets.xcassets in Resources */,
 				18298E33214EE37E0071A1DE /* SFCompactText-MediumItalic.otf in Resources */,
@@ -480,11 +502,13 @@
 				187BF102214ED4CC00F710D6 /* AppDelegate.swift in Sources */,
 				18AFA9D8216CE68D00C83EF2 /* ParkingPins.swift in Sources */,
 				18E815B1218456C600A4B73F /* ReachabilityManager.swift in Sources */,
+				18E815B921846ED000A4B73F /* SectionViewController.swift in Sources */,
 				181FB6562181AD0300262445 /* GMSMapview+Route.swift in Sources */,
 				180282A12157A17E00864217 /* AlertHelper.swift in Sources */,
 				1802829A2157938A00864217 /* Constants.swift in Sources */,
 				18E815B42184582A00A4B73F /* Async.swift in Sources */,
 				18832C1221615C670025BA9C /* Model.swift in Sources */,
+				18E815BD21846F2500A4B73F /* SectionsCollectioViewCellCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

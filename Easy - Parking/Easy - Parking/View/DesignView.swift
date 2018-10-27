@@ -8,6 +8,7 @@
 
 import UIKit
 import Foundation
+
 @IBDesignable final class DesignView: UIView {
     
     @IBInspectable var cornerRadius:CGFloat = 0
