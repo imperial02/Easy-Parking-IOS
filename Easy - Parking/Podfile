@@ -8,8 +8,8 @@ target 'Easy - Parking' do
     # Pods for Easy - Parking
     pod "Alamofire"
     pod "SwiftyJSON"
+    pod "Charts", :git => 'https://github.com/danielgindi/Charts.git', :branch => 'master'
+    pod "SVProgressHUD"
     pod "GoogleMaps"
     pod "GooglePlaces"
-    pod "Charts", :git => 'https://github.com/danielgindi/Charts.git', :branch => 'master'
-    
 end

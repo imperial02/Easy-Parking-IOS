@@ -17,6 +17,7 @@ import GooglePlaces
 extension GMSMapView {
     func drawPath(googleMaps: GMSMapView ,startLocation: CLLocation, endLocation: CLLocation)
     {
+        var polylines = [GMSPolyline]()
         let origin = "\(startLocation.coordinate.latitude),\(startLocation.coordinate.longitude)"
         let destination = "\(endLocation.coordinate.latitude),\(endLocation.coordinate.longitude)"
         guard let url = getGoogleUrl(startLocation: origin, endLocation: destination) else { return }
@@ -32,12 +33,15 @@ extension GMSMapView {
                         let points = routeOverviewPolyline?["points"]?.stringValue
                         let path = GMSPath.init(fromEncodedPath: points!)
                         let polyline = GMSPolyline.init(path: path)
+                        polylines.append(polyline)
                         polyline.strokeWidth = 4
                         polyline.strokeColor = UIColor(red: 200, green: 100 , blue: 3, alpha: 1.0)
                         polyline.map = googleMaps
+                        if polylines.count > 1 || endLocation == startLocation {
+                            polylines.removeLast()
+                        }
                     }
                 }
-               
             }
         }
     }
@@ -55,5 +59,8 @@ extension GMSMapView {
         ]
         return urlComponents.url
     }
+    
+    
+    
 }
 

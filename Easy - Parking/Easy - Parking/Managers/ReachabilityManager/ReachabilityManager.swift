@@ -10,10 +10,6 @@ import SystemConfiguration
 import Foundation
 
 
-extension NSNotification.Name {
-    static let ReachabilityStatusChanged = NSNotification.Name("ReachabilityStatusChanged")
-}
-
 final class ReachabilityManager {
     
     static let shared: ReachabilityManager = ReachabilityManager()

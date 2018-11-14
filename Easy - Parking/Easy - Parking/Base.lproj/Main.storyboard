@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HtJ-NX-nlU">
-    <device id="retina4_7" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EnV-Fc-QjT">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,11 +15,11 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MapViewController" customModule="Easy___Parking" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gCG-Eu-h27" customClass="GMSMapView">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
@@ -52,7 +52,7 @@
             <objects>
                 <viewController restorationIdentifier="NoLocationViewController" storyboardIdentifier="NoLocationViewController" id="fxI-1o-QJL" customClass="NoLocationViewController" customModule="Easy___Parking" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kHp-OB-QZQ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="QzE-T6-KoZ"/>
@@ -62,23 +62,96 @@
             </objects>
             <point key="canvasLocation" x="3605.5999999999999" y="132.68365817091455"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="4ID-VZ-1pu">
+        <!--Item-->
+        <scene sceneID="gwI-87-uEj">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HtJ-NX-nlU" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HSg-Xs-7Pe" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="woQ-hE-xsT"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="CWa-06-IAR">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3w7-IT-u1S">
+                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="LHY-oD-Boe"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Xiz-LT-uah"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qRJ-Bd-hKc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XSS-TJ-4rX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2015.2" y="133.5832083958021"/>
+            <point key="canvasLocation" x="1791" y="161"/>
+        </scene>
+        <!--Sections-->
+        <scene sceneID="6iL-E7-ofF">
+            <objects>
+                <viewController storyboardIdentifier="SectionViewController" id="WG6-ee-zTp" customClass="SectionViewController" customModule="Easy___Parking" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xZ8-Ex-g2x">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4dv-Zv-17t">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="msm-WD-ph1">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="LSJ-ln-5TY">
+                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="scrollIndicatorInsets" minX="4" minY="0.0" maxX="4" maxY="0.0"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="8" minimumInteritemSpacing="8" id="9Z3-S6-bam">
+                                    <size key="itemSize" width="120" height="120"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="4" minY="4" maxX="4" maxY="4"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="LSJ-ln-5TY" firstAttribute="top" secondItem="gjA-oR-a3E" secondAttribute="top" id="8FV-g1-MK1"/>
+                            <constraint firstItem="LSJ-ln-5TY" firstAttribute="trailing" secondItem="gjA-oR-a3E" secondAttribute="trailing" id="DJ5-3O-Ptb"/>
+                            <constraint firstItem="LSJ-ln-5TY" firstAttribute="leading" secondItem="gjA-oR-a3E" secondAttribute="leading" id="FAX-uA-kjp"/>
+                            <constraint firstItem="4dv-Zv-17t" firstAttribute="trailing" secondItem="gjA-oR-a3E" secondAttribute="trailing" id="KZi-YC-Msi"/>
+                            <constraint firstItem="4dv-Zv-17t" firstAttribute="leading" secondItem="gjA-oR-a3E" secondAttribute="leading" id="VyC-cx-TqB"/>
+                            <constraint firstItem="4dv-Zv-17t" firstAttribute="bottom" secondItem="gjA-oR-a3E" secondAttribute="bottom" id="veE-8k-ZGT"/>
+                            <constraint firstItem="4dv-Zv-17t" firstAttribute="top" secondItem="xZ8-Ex-g2x" secondAttribute="top" id="xnB-up-raX"/>
+                            <constraint firstItem="LSJ-ln-5TY" firstAttribute="bottom" secondItem="gjA-oR-a3E" secondAttribute="bottom" id="zcY-0O-n8F"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="gjA-oR-a3E"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Sections" id="w9V-d3-Deq"/>
+                    <connections>
+                        <outlet property="collectionView" destination="LSJ-ln-5TY" id="ZTv-OE-TG6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zpa-eZ-faP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3887.1999999999998" y="821.73913043478262"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="JLX-bj-trk">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EnV-Fc-QjT" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="VJm-O1-LEG">
+                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="WG6-ee-zTp" kind="relationship" relationship="rootViewController" id="P6V-dR-Akm"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DwW-OH-DcT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2948" y="821.73913043478262"/>
         </scene>
     </scenes>
 </document>

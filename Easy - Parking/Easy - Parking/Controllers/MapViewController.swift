@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 import GooglePlaces
 import GoogleMaps
 import CoreLocation
@@ -26,7 +27,6 @@ final class MapViewController: UIViewController {
     private let networkManager = NetworkManager()
     private var model: [Model] = []
     private var userLocation = CLLocation()
-    fileprivate lazy var sectionViewController: UIViewController = self.initialViewControllerFromStoryboard(Constants.sectionStoryboadrIdentifier)
     private let polyline = GMSPolyline()
     weak var delegate: MapManagerDelegate?
     
@@ -52,22 +52,12 @@ final class MapViewController: UIViewController {
     
     // MARK: - Private
     private func presentNoLocationController() {
-        guard let viewController = UIStoryboard(name: Constants.storyboardName, bundle: nil).instantiateViewController(withIdentifier: Constants.noLocationControllerStoryboardIdentifier   ) as? NoLocationViewController else { return }
+        guard let viewController = UIStoryboard(name: Constants.storyboardName, bundle: nil).instantiateViewController(withIdentifier: Constants.noLocationControllerStoryboardIdentifier) as? NoLocationViewController else { return }
         guard let navigator = navigationController else { return }
         navigator.present(viewController, animated: true)
     }
     
-    private func initialViewControllerFromStoryboard<T>(_ name: String) -> T {
-        let storyboard = UIStoryboard(name: name, bundle: nil)
-        let identifier = String(describing: T.self)
-        guard let viewController = storyboard.instantiateViewController(withIdentifier: identifier) as? T else {
-            fatalError("Missing \(identifier) in Storyboard")
-        }
-        return viewController
-    }
-    
     private func fetchData() {
-        Async.mainQueue {
             self.networkManager.getPins(onSucess: { [weak self] model in
                 self?.model = model
                 self?.createAnnotations(for: model)
@@ -75,9 +65,7 @@ final class MapViewController: UIViewController {
             }) { [weak self] (error) in
                 guard let `self` = self else { return }
                 AlertHelper.showAlert(on: self, message: "Please check your intenet :(", buttonTitle: "Ok", buttonAction: { })
-                self.mapView.isHidden = true
             }
-        }
     }
     
     private func createAnnotations(for parkingPlaces: [Model]) {
@@ -87,10 +75,20 @@ final class MapViewController: UIViewController {
         }
     }
     
+    private func presentSectionViewController() {
+        guard let viewController = UIStoryboard(name: Constants.storyboardName, bundle: nil).instantiateViewController(withIdentifier: "SectionViewController") as? SectionViewController else { return }
+        guard let navigator = navigationController else { return }
+        navigator.pushViewController(viewController, animated: true)
+    }
+    
 }
 
 // MARK: - LocationManagerDelegate
 extension MapViewController: LocationManagerDelegate {
+    
+    func didChangeController() {
+       presentSectionViewController()
+    }
     
     func didReceiveUserLocation(_ location: CLLocation) {
         Async.mainQueue { [weak self] in
@@ -165,8 +163,8 @@ extension MapViewController: GMSMapViewDelegate {
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
         if let pin = marker as? ParkingPins {
             let coordinate = CLLocation(latitude: (pin.places?.coordinate?.latitude)!, longitude: (pin.places?.coordinate?.longitude)!)
-            self.delegate?.didReceivePinCoordinate(coordinate)
             mapView.drawPath(googleMaps: mapView, startLocation: userLocation, endLocation: coordinate)
+            self.delegate?.didReceivePinCoordinate(coordinate)
         }
         return true
     }

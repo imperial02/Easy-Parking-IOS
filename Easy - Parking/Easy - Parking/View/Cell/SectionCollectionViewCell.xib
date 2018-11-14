@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="SectionCollectionViewCell" id="gTV-IL-0wX" customClass="SectionCollectionViewCell" customModule="Easy___Parking" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="391" height="295"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="391" height="295"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ceh-ct-L9i" customClass="DesignView" customModule="Easy___Parking" customModuleProvider="target">
+                        <rect key="frame" x="10" y="11" width="371" height="273"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="95j-CT-vk0" customClass="PieChartView" customModule="Charts">
+                                <rect key="frame" x="271" y="191" width="92" height="67"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="67" id="HEM-fx-WqC"/>
+                                    <constraint firstAttribute="width" constant="92" id="bYe-GM-1vf"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b2p-5x-GW9">
+                                <rect key="frame" x="21" y="21" width="57" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="ZvL-tM-jPA"/>
+                                    <constraint firstAttribute="width" constant="57" id="tzd-jF-Jgs"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IR0-Z3-dDN">
+                                <rect key="frame" x="21" y="66" width="162" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="162" id="22t-xX-UWa"/>
+                                    <constraint firstAttribute="height" constant="37" id="GOJ-Y1-b1g"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="IR0-Z3-dDN" firstAttribute="leading" secondItem="b2p-5x-GW9" secondAttribute="leading" id="Dsf-YB-X4i"/>
+                            <constraint firstItem="IR0-Z3-dDN" firstAttribute="top" secondItem="b2p-5x-GW9" secondAttribute="bottom" constant="8" symbolic="YES" id="S9A-Tc-aiC"/>
+                            <constraint firstItem="b2p-5x-GW9" firstAttribute="top" secondItem="Ceh-ct-L9i" secondAttribute="top" constant="21" id="WMM-Rg-6qp"/>
+                            <constraint firstAttribute="trailing" secondItem="95j-CT-vk0" secondAttribute="trailing" constant="8" id="bSz-Yr-A1P"/>
+                            <constraint firstAttribute="bottom" secondItem="95j-CT-vk0" secondAttribute="bottom" constant="15" id="mFK-5a-yMc"/>
+                            <constraint firstItem="95j-CT-vk0" firstAttribute="leading" secondItem="IR0-Z3-dDN" secondAttribute="trailing" constant="88" id="mGK-1I-7Ir"/>
+                            <constraint firstItem="b2p-5x-GW9" firstAttribute="leading" secondItem="Ceh-ct-L9i" secondAttribute="leading" constant="21" id="sdQ-7R-Y82"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="9"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="Ceh-ct-L9i" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="0Hy-Tf-AcO"/>
+                <constraint firstItem="Ceh-ct-L9i" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="11" id="JuY-RA-ZUL"/>
+                <constraint firstItem="Ceh-ct-L9i" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="Z4u-YD-5Yg"/>
+                <constraint firstItem="Ceh-ct-L9i" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="dfI-Ig-4UR"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="391" height="295"/>
+            <connections>
+                <outlet property="pieChart" destination="95j-CT-vk0" id="TsO-gU-RiU"/>
+                <outlet property="sectionLabel" destination="b2p-5x-GW9" id="WoZ-Zz-f8G"/>
+                <outlet property="totalCount" destination="IR0-Z3-dDN" id="Pm0-Kk-9WP"/>
+            </connections>
+            <point key="canvasLocation" x="210.40000000000001" y="258.99014778325125"/>
+        </collectionViewCell>
+    </objects>
+</document>

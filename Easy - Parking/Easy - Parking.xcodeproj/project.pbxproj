@@ -33,6 +33,8 @@
 		18298E3B214EE37E0071A1DE /* SFCompactText-HeavyItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 18298E26214EE37E0071A1DE /* SFCompactText-HeavyItalic.otf */; };
 		18298E3C214EE37E0071A1DE /* SFCompactText-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 18298E27214EE37E0071A1DE /* SFCompactText-LightItalic.otf */; };
 		18298E3D214EE37E0071A1DE /* SFCompactDisplay-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 18298E28214EE37E0071A1DE /* SFCompactDisplay-Thin.otf */; };
+		182FD11C218B1E92007165D2 /* SectionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182FD11A218B1E92007165D2 /* SectionCollectionViewCell.swift */; };
+		182FD11D218B1E92007165D2 /* SectionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 182FD11B218B1E92007165D2 /* SectionCollectionViewCell.xib */; };
 		1830252B2174AAC8007FCBD9 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1830252A2174AAC8007FCBD9 /* NotificationManager.swift */; };
 		187BF102214ED4CC00F710D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187BF101214ED4CC00F710D6 /* AppDelegate.swift */; };
 		187BF104214ED4CC00F710D6 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187BF103214ED4CC00F710D6 /* MapViewController.swift */; };
@@ -47,8 +49,7 @@
 		18E815B1218456C600A4B73F /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E815B0218456C600A4B73F /* ReachabilityManager.swift */; };
 		18E815B42184582A00A4B73F /* Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E815B32184582A00A4B73F /* Async.swift */; };
 		18E815B72184602900A4B73F /* NoInternetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18E815B62184602900A4B73F /* NoInternetView.xib */; };
-		18E815B921846ED000A4B73F /* SectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E815B821846ED000A4B73F /* SectionViewController.swift */; };
-		18E815C0218474CD00A4B73F /* SectionStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18E815BF218474CD00A4B73F /* SectionStoryboard.storyboard */; };
+		51F62CE2219C4B5400360F2D /* SectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F62CE1219C4B5400360F2D /* SectionViewController.swift */; };
 		8D3772E72F8AAC9A69779889 /* Pods_Easy___Parking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F918986CD3CA0161DFCCC4B /* Pods_Easy___Parking.framework */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +81,8 @@
 		18298E26214EE37E0071A1DE /* SFCompactText-HeavyItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFCompactText-HeavyItalic.otf"; sourceTree = "<group>"; };
 		18298E27214EE37E0071A1DE /* SFCompactText-LightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFCompactText-LightItalic.otf"; sourceTree = "<group>"; };
 		18298E28214EE37E0071A1DE /* SFCompactDisplay-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFCompactDisplay-Thin.otf"; sourceTree = "<group>"; };
+		182FD11A218B1E92007165D2 /* SectionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionCollectionViewCell.swift; sourceTree = "<group>"; };
+		182FD11B218B1E92007165D2 /* SectionCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionCollectionViewCell.xib; sourceTree = "<group>"; };
 		1830252A2174AAC8007FCBD9 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		1874AE53217BB5150050A95C /* PLVision.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PLVision.gpx; sourceTree = "<group>"; };
 		187BF0FE214ED4CC00F710D6 /* Easy - Parking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Easy - Parking.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,9 +101,8 @@
 		18E815B0218456C600A4B73F /* ReachabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
 		18E815B32184582A00A4B73F /* Async.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Async.swift; sourceTree = "<group>"; };
 		18E815B62184602900A4B73F /* NoInternetView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoInternetView.xib; sourceTree = "<group>"; };
-		18E815B821846ED000A4B73F /* SectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionViewController.swift; sourceTree = "<group>"; };
-		18E815BF218474CD00A4B73F /* SectionStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SectionStoryboard.storyboard; sourceTree = "<group>"; };
 		1F918986CD3CA0161DFCCC4B /* Pods_Easy___Parking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_Easy___Parking.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		51F62CE1219C4B5400360F2D /* SectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionViewController.swift; sourceTree = "<group>"; };
 		79DE76B3B8EB32280B6CE5FB /* Pods-Easy - Parking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Easy - Parking.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Easy - Parking/Pods-Easy - Parking.debug.xcconfig"; sourceTree = "<group>"; };
 		B4A7ECF4EAA9FF1DD1C619E5 /* Pods-Easy - Parking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Easy - Parking.release.xcconfig"; path = "Pods/Target Support Files/Pods-Easy - Parking/Pods-Easy - Parking.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -158,7 +160,7 @@
 			children = (
 				187BF103214ED4CC00F710D6 /* MapViewController.swift */,
 				180282A5215814E500864217 /* NoLocationViewController.swift */,
-				18E815B821846ED000A4B73F /* SectionViewController.swift */,
+				51F62CE1219C4B5400360F2D /* SectionViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -197,6 +199,15 @@
 				18298E28214EE37E0071A1DE /* SFCompactDisplay-Thin.otf */,
 			);
 			path = "SF Compact";
+			sourceTree = "<group>";
+		};
+		182FD119218B1E73007165D2 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				182FD11A218B1E92007165D2 /* SectionCollectionViewCell.swift */,
+				182FD11B218B1E92007165D2 /* SectionCollectionViewCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		183025292174AAB2007FCBD9 /* NotificationManager */ = {
@@ -242,7 +253,6 @@
 				187BF108214ED4CE00F710D6 /* Assets.xcassets */,
 				187BF10A214ED4CE00F710D6 /* LaunchScreen.storyboard */,
 				187BF10D214ED4CE00F710D6 /* Info.plist */,
-				18E815BF218474CD00A4B73F /* SectionStoryboard.storyboard */,
 			);
 			path = "Easy - Parking";
 			sourceTree = "<group>";
@@ -277,6 +287,7 @@
 		18C0407E2167A96E006CF61F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				182FD119218B1E73007165D2 /* Cell */,
 				18C0407F2167A9CC006CF61F /* RoundButton.swift */,
 				188219D9217B356A00003A84 /* DesignView.swift */,
 				18E815B62184602900A4B73F /* NoInternetView.xib */,
@@ -328,8 +339,8 @@
 				187BF0FA214ED4CC00F710D6 /* Sources */,
 				187BF0FB214ED4CC00F710D6 /* Frameworks */,
 				187BF0FC214ED4CC00F710D6 /* Resources */,
-				74A724E1D864A65B52498F06 /* [CP] Copy Pods Resources */,
 				08B77178673E8A83D91D354E /* [CP] Embed Pods Frameworks */,
+				8E62999883667BBB6931D4B2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -387,10 +398,10 @@
 				18298E3D214EE37E0071A1DE /* SFCompactDisplay-Thin.otf in Resources */,
 				18298E39214EE37E0071A1DE /* SFCompactDisplay-Ultralight.otf in Resources */,
 				18298E2B214EE37E0071A1DE /* SFCompactText-SemiboldItalic.otf in Resources */,
+				182FD11D218B1E92007165D2 /* SectionCollectionViewCell.xib in Resources */,
 				187BF10C214ED4CE00F710D6 /* LaunchScreen.storyboard in Resources */,
 				18298E3C214EE37E0071A1DE /* SFCompactText-LightItalic.otf in Resources */,
 				18E815B72184602900A4B73F /* NoInternetView.xib in Resources */,
-				18E815C0218474CD00A4B73F /* SectionStoryboard.storyboard in Resources */,
 				18298E32214EE37E0071A1DE /* SFCompactDisplay-Regular.otf in Resources */,
 				18298E2E214EE37E0071A1DE /* SFCompactText-BoldItalic.otf in Resources */,
 				18298E34214EE37E0071A1DE /* SFCompactText-Semibold.otf in Resources */,
@@ -419,12 +430,14 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Easy - Parking/Pods-Easy - Parking-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -450,7 +463,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		74A724E1D864A65B52498F06 /* [CP] Copy Pods Resources */ = {
+		8E62999883667BBB6931D4B2 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -481,17 +494,18 @@
 				188219DA217B356A00003A84 /* DesignView.swift in Sources */,
 				1802829E215794E100864217 /* LocationManager.swift in Sources */,
 				187BF104214ED4CC00F710D6 /* MapViewController.swift in Sources */,
+				51F62CE2219C4B5400360F2D /* SectionViewController.swift in Sources */,
 				180282A6215814E500864217 /* NoLocationViewController.swift in Sources */,
 				1830252B2174AAC8007FCBD9 /* NotificationManager.swift in Sources */,
 				18832C0E2160CF700025BA9C /* NetworkManager.swift in Sources */,
 				187BF102214ED4CC00F710D6 /* AppDelegate.swift in Sources */,
 				18AFA9D8216CE68D00C83EF2 /* ParkingPins.swift in Sources */,
 				18E815B1218456C600A4B73F /* ReachabilityManager.swift in Sources */,
-				18E815B921846ED000A4B73F /* SectionViewController.swift in Sources */,
 				181FB6562181AD0300262445 /* GMSMapview+Route.swift in Sources */,
 				180282A12157A17E00864217 /* AlertHelper.swift in Sources */,
 				1802829A2157938A00864217 /* Constants.swift in Sources */,
 				18E815B42184582A00A4B73F /* Async.swift in Sources */,
+				182FD11C218B1E92007165D2 /* SectionCollectionViewCell.swift in Sources */,
 				18832C1221615C670025BA9C /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -640,7 +654,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 65ZCMBX653;
 				INFOPLIST_FILE = "Easy - Parking/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -660,7 +674,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 65ZCMBX653;
 				INFOPLIST_FILE = "Easy - Parking/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

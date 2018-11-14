@@ -7,6 +7,7 @@
 //
 
 import CoreLocation
+import UIKit
 
 struct Constants {
     static let googleApiKey = "AIzaSyB0hFRsHyWdduLXZrkdIPMrL2SGFOHAe90"
@@ -19,7 +20,12 @@ struct Constants {
     static let restrictedAlertButtonName = "Ok"
     static let storyboardName = "Main"
     static let noLocationControllerStoryboardIdentifier = "NoLocationViewController"
-    static let sectionStoryboadrIdentifier = "SectionStoryboard"
+    static let sectionViewController = "SectionViewController"
+    static let sectStoryboard = "SectionStoryboard"
+    static let cellIdent = "SectionCollectionViewCell"
+    static let cellName = "SectionCollectionViewCell"
+    static let numbersOfColumns: CGFloat = 2
+    static let spaceBetweenCell: CGFloat = 8
 }
 
 struct EasyParkingURLConstants {
