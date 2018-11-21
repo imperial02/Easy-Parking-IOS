@@ -81,11 +81,11 @@ extension LocationManager: CLLocationManagerDelegate {
     final func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let currentUserLocation = locations.last else { return }
         guard let marker = markerCoordinate else { return }
+        self.delegate?.didReceiveUserLocation(currentUserLocation)
         let disntase = currentUserLocation.distance(from: marker)
         if disntase < 200.0 {  
             self.delegate?.didChangeController()
         }
-        self.delegate?.didReceiveUserLocation(currentUserLocation)
     }
     
     final func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {

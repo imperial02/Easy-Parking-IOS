@@ -14,7 +14,7 @@ import GooglePlaces
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         GMSServices.provideAPIKey(Constants.googleApiKey)
         GMSPlacesClient.provideAPIKey(Constants.googleApiKey)
@@ -23,9 +23,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
         ReachabilityManager.shared.startMonitoring()
-    }
+        if((self.window?.subviews.count)! > 1) {
+            self.window?.subviews.last?.removeFromSuperview()
+        }
 
+    }
+    
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        ReachabilityManager.shared.stopMonitoring()
+    }
+    
+    func applicationWillResignActive(_ application: UIApplication) {
+        let launchStoryboard : UIStoryboard = UIStoryboard(name: "LaunchScreen", bundle: nil)
+        let launchViewController : UIViewController = launchStoryboard.instantiateViewController(withIdentifier: "LS") as UIViewController
+        let launchView : UIView = launchViewController.view!
+        self.window?.addSubview(launchView)
+    }
+    
 }
 
