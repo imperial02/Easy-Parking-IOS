@@ -10,6 +10,7 @@ PODS:
     - GoogleMaps/Base
   - GooglePlaces (2.7.0):
     - GoogleMaps/Base (= 2.7.0)
+  - ReachabilitySwift (3)
   - SVProgressHUD (2.2.5)
   - SwiftyJSON (4.1.0)
 
@@ -18,6 +19,7 @@ DEPENDENCIES:
   - Charts (from `https://github.com/danielgindi/Charts.git`, branch `master`)
   - GoogleMaps
   - GooglePlaces
+  - ReachabilitySwift (~> 3)
   - SVProgressHUD
   - SwiftyJSON
 
@@ -26,6 +28,7 @@ SPEC REPOS:
     - Alamofire
     - GoogleMaps
     - GooglePlaces
+    - ReachabilitySwift
     - SVProgressHUD
     - SwiftyJSON
 
@@ -44,9 +47,10 @@ SPEC CHECKSUMS:
   Charts: f122fb70b19847fa5817d018b77d6c5a2296ab25
   GoogleMaps: f79af95cb24d869457b1f961c93d3ce8b2f3b848
   GooglePlaces: 3d06e6c99654545b4738ce49648745779c25f2ef
+  ReachabilitySwift: f5b9bb30a0777fac8f09ce8b067e32faeb29bb64
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
 
-PODFILE CHECKSUM: 2a89c6f9a6cdf559334e82d3697a3e2406079694
+PODFILE CHECKSUM: 80565908c9d46e432cc479f3e6ed39bb1fc30593
 
 COCOAPODS: 1.5.3

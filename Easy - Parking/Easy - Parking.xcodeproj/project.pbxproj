@@ -48,7 +48,8 @@
 		18C040802167A9CC006CF61F /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C0407F2167A9CC006CF61F /* RoundButton.swift */; };
 		18E815B1218456C600A4B73F /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E815B0218456C600A4B73F /* ReachabilityManager.swift */; };
 		18E815B42184582A00A4B73F /* Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E815B32184582A00A4B73F /* Async.swift */; };
-		18E815B72184602900A4B73F /* NoInternetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18E815B62184602900A4B73F /* NoInternetView.xib */; };
+		18FAB82121A56F0200BB1244 /* NoInternetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FAB82021A56F0200BB1244 /* NoInternetViewController.swift */; };
+		18FAB82421A56FA400BB1244 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FAB82321A56FA400BB1244 /* Utils.swift */; };
 		51F62CE2219C4B5400360F2D /* SectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F62CE1219C4B5400360F2D /* SectionViewController.swift */; };
 		8D3772E72F8AAC9A69779889 /* Pods_Easy___Parking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F918986CD3CA0161DFCCC4B /* Pods_Easy___Parking.framework */; };
 /* End PBXBuildFile section */
@@ -100,7 +101,8 @@
 		18C0407F2167A9CC006CF61F /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RoundButton.swift; path = "Easy - Parking/RoundButton.swift"; sourceTree = SOURCE_ROOT; };
 		18E815B0218456C600A4B73F /* ReachabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
 		18E815B32184582A00A4B73F /* Async.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Async.swift; sourceTree = "<group>"; };
-		18E815B62184602900A4B73F /* NoInternetView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoInternetView.xib; sourceTree = "<group>"; };
+		18FAB82021A56F0200BB1244 /* NoInternetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoInternetViewController.swift; sourceTree = "<group>"; };
+		18FAB82321A56FA400BB1244 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		1F918986CD3CA0161DFCCC4B /* Pods_Easy___Parking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_Easy___Parking.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		51F62CE1219C4B5400360F2D /* SectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionViewController.swift; sourceTree = "<group>"; };
 		79DE76B3B8EB32280B6CE5FB /* Pods-Easy - Parking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Easy - Parking.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Easy - Parking/Pods-Easy - Parking.debug.xcconfig"; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 				187BF103214ED4CC00F710D6 /* MapViewController.swift */,
 				180282A5215814E500864217 /* NoLocationViewController.swift */,
 				51F62CE1219C4B5400360F2D /* SectionViewController.swift */,
+				18FAB82021A56F0200BB1244 /* NoInternetViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 		187BF100214ED4CC00F710D6 /* Easy - Parking */ = {
 			isa = PBXGroup;
 			children = (
+				18FAB82221A56F8D00BB1244 /* Extension */,
 				18E815B2218457D600A4B73F /* ConcurrencyUtils */,
 				188219DB217B490A00003A84 /* GPX */,
 				18C0407E2167A96E006CF61F /* View */,
@@ -290,7 +294,6 @@
 				182FD119218B1E73007165D2 /* Cell */,
 				18C0407F2167A9CC006CF61F /* RoundButton.swift */,
 				188219D9217B356A00003A84 /* DesignView.swift */,
-				18E815B62184602900A4B73F /* NoInternetView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -309,6 +312,14 @@
 				18E815B32184582A00A4B73F /* Async.swift */,
 			);
 			path = ConcurrencyUtils;
+			sourceTree = "<group>";
+		};
+		18FAB82221A56F8D00BB1244 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				18FAB82321A56FA400BB1244 /* Utils.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		A6B30141B196EC2B60954FDC /* Pods */ = {
@@ -401,7 +412,6 @@
 				182FD11D218B1E92007165D2 /* SectionCollectionViewCell.xib in Resources */,
 				187BF10C214ED4CE00F710D6 /* LaunchScreen.storyboard in Resources */,
 				18298E3C214EE37E0071A1DE /* SFCompactText-LightItalic.otf in Resources */,
-				18E815B72184602900A4B73F /* NoInternetView.xib in Resources */,
 				18298E32214EE37E0071A1DE /* SFCompactDisplay-Regular.otf in Resources */,
 				18298E2E214EE37E0071A1DE /* SFCompactText-BoldItalic.otf in Resources */,
 				18298E34214EE37E0071A1DE /* SFCompactText-Semibold.otf in Resources */,
@@ -430,6 +440,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Easy - Parking/Pods-Easy - Parking-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
+				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/ReachabilitySwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
@@ -437,6 +448,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReachabilitySwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
@@ -502,10 +514,12 @@
 				18AFA9D8216CE68D00C83EF2 /* ParkingPins.swift in Sources */,
 				18E815B1218456C600A4B73F /* ReachabilityManager.swift in Sources */,
 				181FB6562181AD0300262445 /* GMSMapview+Route.swift in Sources */,
+				18FAB82121A56F0200BB1244 /* NoInternetViewController.swift in Sources */,
 				180282A12157A17E00864217 /* AlertHelper.swift in Sources */,
 				1802829A2157938A00864217 /* Constants.swift in Sources */,
 				18E815B42184582A00A4B73F /* Async.swift in Sources */,
 				182FD11C218B1E92007165D2 /* SectionCollectionViewCell.swift in Sources */,
+				18FAB82421A56FA400BB1244 /* Utils.swift in Sources */,
 				18832C1221615C670025BA9C /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

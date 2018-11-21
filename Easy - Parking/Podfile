@@ -11,5 +11,6 @@ target 'Easy - Parking' do
     pod "Charts", :git => 'https://github.com/danielgindi/Charts.git', :branch => 'master'
     pod "SVProgressHUD"
     pod "GoogleMaps"
+     pod ‘ReachabilitySwift’, ‘~> 3’
     pod "GooglePlaces"
 end

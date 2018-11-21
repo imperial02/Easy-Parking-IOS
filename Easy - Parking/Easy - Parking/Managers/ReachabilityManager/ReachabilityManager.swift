@@ -6,38 +6,57 @@
 //  Copyright © 2018 Easy-Parking. All rights reserved.
 //
 
-import SystemConfiguration
-import Foundation
+import UIKit
+import ReachabilitySwift
 
+protocol NetworkStatusListener: class {
+    func networkStatusDidChange(status: Reachability.NetworkStatus)
+}
 
-final class ReachabilityManager {
+class ReachabilityManager: NSObject {
     
-    static let shared: ReachabilityManager = ReachabilityManager()
-    private init() {}
-
-    class func isConnectedToNetwork() -> Bool {
-        
-        var zeroAddress = sockaddr_in(sin_len: 0, sin_family: 0, sin_port: 0, sin_addr: in_addr(s_addr: 0), sin_zero: (0, 0, 0, 0, 0, 0, 0, 0))
-        zeroAddress.sin_len = UInt8(MemoryLayout.size(ofValue: zeroAddress))
-        zeroAddress.sin_family = sa_family_t(AF_INET)
-        
-        guard let defaultRouteReachability = withUnsafePointer(to: &zeroAddress, {
-            $0.withMemoryRebound(to: sockaddr.self, capacity: 1) { zeroSockAddress in
-                SCNetworkReachabilityCreateWithAddress(kCFAllocatorDefault, zeroSockAddress)
-            }
-        }) else {
-            return false
+    static let shared = ReachabilityManager()
+    
+    var reachabilityStatus: Reachability.NetworkStatus = .notReachable
+    
+    let reachability = Reachability()!
+    
+    var listeners = [NetworkStatusListener]()
+    
+    @objc func reachabilityChanged(notification: Notification) {
+        let reachability = notification.object as! Reachability
+        switch reachability.currentReachabilityStatus {
+        case .notReachable:
+            debugPrint("Network became unreachable")
+        case .reachableViaWiFi:
+            debugPrint("Network reachable through WiFi")
+        case .reachableViaWWAN:
+            debugPrint("Network reachable through Cellular Data")
         }
-        
-        var flags: SCNetworkReachabilityFlags = SCNetworkReachabilityFlags(rawValue: 0)
-        if !SCNetworkReachabilityGetFlags(defaultRouteReachability, &flags) {
-            return false
+        for listener in listeners {
+            listener.networkStatusDidChange(status: reachability.currentReachabilityStatus)
         }
-        
-        let isReachable = flags.contains(.reachable)
-        let needsConnection = flags.contains(.connectionRequired)
-        
-        return isReachable && !needsConnection
     }
     
+    func startMonitoring() {
+        NotificationCenter.default.addObserver(self, selector: #selector(self.reachabilityChanged), name: ReachabilityChangedNotification, object: reachability)
+        do {
+            try reachability.startNotifier()
+        } catch {
+            debugPrint("Could not start reachability notifier")
+        }
+    }
+    
+    func stopMonitoring() {
+        reachability.stopNotifier()
+        NotificationCenter.default.removeObserver(self, name: ReachabilityChangedNotification, object: reachability)
+    }
+    
+    func addListner(listener: NetworkStatusListener) {
+        listeners.append(listener)
+    }
+    
+    func removeListener(listener: NetworkStatusListener) {
+        listeners = listeners.filter{ $0 !== listener}
+    }
 }

@@ -11,6 +11,7 @@ import SVProgressHUD
 import GooglePlaces
 import GoogleMaps
 import CoreLocation
+import ReachabilitySwift
 
 protocol MapManagerDelegate: class {
     func didReceivePinCoordinate(_ location: CLLocation)
@@ -25,6 +26,7 @@ final class MapViewController: UIViewController {
     private let camera = GMSCameraPosition.camera(withLatitude: 49.8383, longitude: 24.0232, zoom: 10.0)
     private let locationManager = LocationManager()
     private let networkManager = NetworkManager()
+    private let rechabilityManager = ReachabilityManager()
     private var model: [Model] = []
     private var userLocation = CLLocation()
     private let polyline = GMSPolyline()
@@ -40,7 +42,16 @@ final class MapViewController: UIViewController {
         mapView.settings.compassButton = false
         self.delegate = locationManager
         locationManager.delegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        ReachabilityManager.shared.addListner(listener: self)
         fetchData()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        ReachabilityManager.shared.removeListener(listener: self)
     }
     
     // MARK: - IBAction
@@ -169,4 +180,21 @@ extension MapViewController: GMSMapViewDelegate {
         return true
     }
     
+}
+
+//MARK:- NetworkStatusListener Delegate
+extension MapViewController: NetworkStatusListener {
+    func networkStatusDidChange(status: Reachability.NetworkStatus) {
+        switch status {
+        case .notReachable:
+            debugPrint("ViewController: Network became unreachable")
+            showNoInternetView(isActive: false)
+        case .reachableViaWiFi:
+            debugPrint("ViewController: Network reachable through WiFi")
+            showNoInternetView(isActive: true)
+        case .reachableViaWWAN:
+            debugPrint("ViewController: Network reachable through Cellular Data")
+            showNoInternetView(isActive: true)
+        }
+    }
 }
