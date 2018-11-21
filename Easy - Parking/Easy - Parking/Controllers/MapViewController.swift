@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SVProgressHUD
 import GooglePlaces
 import GoogleMaps
 import CoreLocation
